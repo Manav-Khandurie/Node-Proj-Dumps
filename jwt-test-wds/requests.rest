@@ -1,0 +1,31 @@
+GET http://localhost:3000/post
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6Ik1hbmF2IiwiaWF0IjoxNzE2MTEwMDI5LCJleHAiOjE3MTYxMTAwNDR9.e30Zh6aBUYSzyfoDBFFzWyQd3WREDmkxl54Ao4jKVec
+
+###
+
+POST  http://localhost:4000/token
+Content-Type: application/json
+
+{
+    "refreshtoken" : "eyJhbGciOiJIUzI1NiJ9.TWFuYXY.gy1D63_rvjMt2tQew6oFw_SlIUUs85JpVBcW_htmHn0"
+} 
+
+
+###
+
+DELETE  http://localhost:4000/logout
+Content-Type: application/json
+
+{
+    "refreshtoken" : "eyJhbGciOiJIUzI1NiJ9.TWFuYXY.gy1D63_rvjMt2tQew6oFw_SlIUUs85JpVBcW_htmHn0" 
+}
+
+###
+
+###
+POST http://localhost:4000/login
+Content-Type: application/json
+
+{
+    "username":"Manav"
+}
