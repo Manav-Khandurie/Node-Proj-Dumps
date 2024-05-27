@@ -1,3 +1,3 @@
 [submodule "koder-expense-tracker"]
-	path = koder-expense-tracker
+	path = koder-expense
 	url = https://github.com/Manav-Khandurie/koder-expense-tracker.git
