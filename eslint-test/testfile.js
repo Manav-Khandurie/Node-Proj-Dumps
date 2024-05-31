@@ -1,0 +1,1 @@
+const mamav = ["Manav", "Doing", ""]
