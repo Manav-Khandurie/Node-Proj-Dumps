@@ -1,6 +1,6 @@
 from manim import *
 
-class BFSWithQueue(Scene):
+class BFSWithQueueVisualization(Scene):
     def construct(self):
         # Define the positions for the tree nodes
         positions = {
@@ -41,11 +41,12 @@ class BFSWithQueue(Scene):
         visited_nodes = set()
 
         while queue:
+            # Dequeue the current node from the queue
             current_node = queue.pop(0)
             bfs_sequence.append(current_node)
             visited_nodes.add(current_node)
 
-            # Update queue display
+            # Update the queue display after dequeue
             self.update_queue_display(queue_display, queue)
 
             # Highlight current node
@@ -56,8 +57,9 @@ class BFSWithQueue(Scene):
             for child in self.get_children(current_node):
                 if child not in visited_nodes and child not in queue:
                     queue.append(child)
+                    # Update the queue display after enqueue
                     self.update_queue_display(queue_display, queue)
-        
+
         # Final wait before ending the scene
         self.wait(2)
 
@@ -72,8 +74,8 @@ class BFSWithQueue(Scene):
         """Update the queue display to reflect the current state of the queue."""
         self.play(FadeOut(queue_display))
         new_queue_display = self.create_queue_display(queue)
-        self.play(Transform(queue_display, new_queue_display))
-        return queue_display
+        self.play(FadeIn(new_queue_display))
+        return new_queue_display
 
     def get_children(self, node):
         """Returns the children of a node in the BFS order."""
@@ -95,5 +97,5 @@ if __name__ == "__main__":
     config.frame_rate = 30
     config.background_color = WHITE
 
-    scene = BFSWithQueue()
+    scene = BFSWithQueueVisualization()
     scene.render()
